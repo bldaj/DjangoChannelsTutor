@@ -148,3 +148,5 @@ if not DEBUG:
     EMAIL_USE_TLS = True
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CSRF_USE_SESSIONS = True
