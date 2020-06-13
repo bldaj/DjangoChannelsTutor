@@ -28,8 +28,21 @@ class ProductImage(models.Model):
     thumbnail = models.ImageField(upload_to='product-thumbnails', null=True)
 
 
+class ProductTagManager(models.Manager):
+    def get_by_natural_key(self, slug):
+        return self.get(slug=slug)
+
+
 class ProductTag(models.Model):
     name = models.CharField(max_length=32)
     slug = models.SlugField(max_length=48)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
+
+    objects = ProductTagManager()
+
+    def natural_key(self):
+        return (self.slug,)
+
+    def __str__(self):
+        return self.name
