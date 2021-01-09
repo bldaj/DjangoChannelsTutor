@@ -152,3 +152,5 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_USE_SESSIONS = True
+
+LOGIN_REDIRECT_URL = '/'
